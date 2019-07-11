@@ -28,7 +28,7 @@ LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
 
 IDD_MAIN DIALOGEX 0, 0, 386, 306
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "DigitalPersona Authentication SDK Sample Program (Native code++)"
+CAPTION "DigitalPersona Access Mangement API Sample Program (Native code)"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     GROUPBOX        "Authentication",IDC_STATIC,7,7,180,103

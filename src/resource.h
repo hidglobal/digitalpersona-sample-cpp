@@ -1,6 +1,6 @@
 //{{NO_DEPENDENCIES}}
 // Microsoft Visual C++ generated include file.
-// Used by UsingProSDK.rc
+// Used by UsingDigitalPersonaSDK.rc
 //
 #define IDS_APP_TITLE                   103
 #define IDC_USINGPROSDK                 109
