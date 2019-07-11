@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2036
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{AC3449BB-12FA-4779-A212-3E55315B0F5E}"
+	ProjectSection(SolutionItems) = preProject
+		Solution Items\DigitalPersona.Altus.VerifyIdentity.Sdk.dll = Solution Items\DigitalPersona.Altus.VerifyIdentity.Sdk.dll
+		Solution Items\DPAuthSdkApi.h = Solution Items\DPAuthSdkApi.h
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UsingDigitalPersonaSDK", "src\UsingDigitalPersonaSDK.vcxproj", "{E427C9B6-56F6-49F1-A90E-0FD1CE59889A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+		Template|x64 = Template|x64
+		Template|x86 = Template|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E427C9B6-56F6-49F1-A90E-0FD1CE59889A}.Debug|x64.ActiveCfg = Debug|x64
+		{E427C9B6-56F6-49F1-A90E-0FD1CE59889A}.Debug|x64.Build.0 = Debug|x64
+		{E427C9B6-56F6-49F1-A90E-0FD1CE59889A}.Debug|x86.ActiveCfg = Debug|Win32
+		{E427C9B6-56F6-49F1-A90E-0FD1CE59889A}.Debug|x86.Build.0 = Debug|Win32
+		{E427C9B6-56F6-49F1-A90E-0FD1CE59889A}.Release|x64.ActiveCfg = Release|x64
+		{E427C9B6-56F6-49F1-A90E-0FD1CE59889A}.Release|x64.Build.0 = Release|x64
+		{E427C9B6-56F6-49F1-A90E-0FD1CE59889A}.Release|x86.ActiveCfg = Release|Win32
+		{E427C9B6-56F6-49F1-A90E-0FD1CE59889A}.Release|x86.Build.0 = Release|Win32
+		{E427C9B6-56F6-49F1-A90E-0FD1CE59889A}.Template|x64.ActiveCfg = Template|x64
+		{E427C9B6-56F6-49F1-A90E-0FD1CE59889A}.Template|x64.Build.0 = Template|x64
+		{E427C9B6-56F6-49F1-A90E-0FD1CE59889A}.Template|x86.ActiveCfg = Template|Win32
+		{E427C9B6-56F6-49F1-A90E-0FD1CE59889A}.Template|x86.Build.0 = Template|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B227280C-FC1D-46E7-8EE8-0E3769947206}
+	EndGlobalSection
+EndGlobal

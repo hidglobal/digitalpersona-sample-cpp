@@ -1,0 +1,253 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#define APSTUDIO_HIDDEN_SYMBOLS
+#include "windows.h"
+#undef APSTUDIO_HIDDEN_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_MAIN DIALOGEX 0, 0, 386, 306
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "DigitalPersona Authentication SDK Sample Program (Native code++)"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    GROUPBOX        "Authentication",IDC_STATIC,7,7,180,103
+    PUSHBUTTON      "Authenticate the currently logged on user",IDC_BTN_AUTH1,16,18,162,24,BS_MULTILINE
+    PUSHBUTTON      "Authenticate a user with modified parameters",IDC_BTN_AUTH2,16,48,162,24,BS_MULTILINE
+    PUSHBUTTON      "Authenticate the currently logged on user and retrieve a secret",IDC_BTN_AUTH3,16,78,162,24,BS_MULTILINE
+    GROUPBOX        "Identification",IDC_STATIC,7,115,180,104
+    PUSHBUTTON      "Identify a user using the currently logged on username as the default",IDC_BTN_IDENT1,16,128,162,24,BS_MULTILINE
+    PUSHBUTTON      "Identify a user using a specified default username",IDC_BTN_IDENT2,16,158,162,24,BS_MULTILINE
+    PUSHBUTTON      "Identify a user and retrieve a secret",IDC_BTN_IDENT3,16,188,162,24,BS_MULTILINE
+    GROUPBOX        "Working with Secrets",IDC_STATIC,7,225,180,74
+    PUSHBUTTON      "Write a secret for the currently logged on user",IDC_BTN_SECRET1,16,238,162,14
+    PUSHBUTTON      "Check if a secret exists",IDC_BTN_SECRET2,16,258,162,14
+    PUSHBUTTON      "Delete a secret",IDC_BTN_SECRET3,16,278,162,14
+    GROUPBOX        "Custom Authentication Policies (Advanced)",IDC_STATIC,199,7,180,134
+    PUSHBUTTON      "Show the authentication policy for the currently logged on user",IDC_BTN_POLICY1,208,18,162,22,BS_MULTILINE
+    PUSHBUTTON      "Authenticate the currently logged on user using a custom policy that replaces the admin's policy",IDC_BTN_AUTH4,208,48,162,24,BS_MULTILINE
+    PUSHBUTTON      "Authenticate the currently logged on user using a custom policy that modifies the admin's policy",IDC_BTN_AUTH5,208,78,162,24,BS_MULTILINE
+    PUSHBUTTON      "Identify a user using a custom policy",IDC_BTN_IDENT4,208,108,162,24,BS_MULTILINE
+    GROUPBOX        "Status and Results",IDC_STATIC,199,164,180,135
+    EDITTEXT        IDC_EDIT_RESULT1,208,178,162,113,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL
+END
+
+IDD_WRITE_SECRET DIALOGEX 0, 0, 252, 84
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Enter secret name and data"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "Secret Name:",IDC_STATIC,7,7,59,14
+    EDITTEXT        IDC_EDIT_SECRET_NAME,66,7,179,14,ES_AUTOHSCROLL
+    LTEXT           "Secret Data:",IDC_STATIC,7,31,59,14
+    EDITTEXT        IDC_EDIT_SECRET_DATA,66,31,179,14,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,141,63,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,195,63,50,14
+END
+
+IDD_SECRET_EXIST DIALOGEX 0, 0, 327, 152
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Enter user name and secret name"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "Username:",IDC_STATIC,7,7,53,14,SS_CENTERIMAGE
+    EDITTEXT        IDC_EDIT_USER_NAME,60,7,124,14,ES_AUTOHSCROLL
+    COMBOBOX        IDC_COMBO_USERTYPES,192,7,128,30,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Username can be in:\r\n    DigitalPersona format (any string)\r\nor\r\n    UPN format (user@company.com)\r\nor\r\n    SAM format (DOMAIN\\UserName).\n\n If left blank, the currently logged on username will be used.",IDC_STATIC,60,30,260,48
+    LTEXT           "Secret Name:",IDC_STATIC,7,98,53,14,SS_CENTERIMAGE
+    EDITTEXT        IDC_EDIT_SECRET_NAME,60,98,260,14,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,209,131,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,270,131,50,14
+END
+
+IDD_SECRET_NAME DIALOGEX 0, 0, 242, 67
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Enter secret name"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "Secret Name:",-1,7,7,53,14,SS_CENTERIMAGE
+    EDITTEXT        IDC_EDIT_SECRET_NAME,60,7,175,14,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,131,46,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,185,46,50,14
+END
+
+IDD_USER_NAME DIALOGEX 0, 0, 354, 117
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Enter default user name for identification"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "Default username:",IDC_STATIC,7,7,69,14,SS_CENTERIMAGE
+    EDITTEXT        IDC_EDIT_USER_NAME,76,7,114,14,ES_AUTOHSCROLL
+    COMBOBOX        IDC_COMBO_USERTYPES,199,7,148,30,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Username can be in:\r\n    DigitalPersona format (any string)\r\nor\r\n    UPN format (user@company.com)\r\nor\r\n    SAM format (DOMAIN\\UserName).\n\n If left blank, the currently logged on username will be used.",IDC_STATIC,76,30,271,48
+    DEFPUSHBUTTON   "OK",IDOK,237,96,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,297,96,50,14
+END
+
+IDD_USER_NAME1 DIALOGEX 0, 0, 382, 144
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Enter user name for authentication"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "Username:",IDC_STATIC,7,7,53,14,SS_CENTERIMAGE
+    EDITTEXT        IDC_EDIT_USER_NAME,60,7,139,14,ES_AUTOHSCROLL
+    COMBOBOX        IDC_COMBO_USERTYPES,216,7,159,30,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Username can be in:\r\n    DigitalPersona format (any string)\r\nor\r\n    UPN format (user@company.com)\r\nor\r\n    SAM format (DOMAIN\\UserName).\n\n If left blank, the currently logged on username will be used.",IDC_STATIC,60,33,315,48
+    LTEXT           "Note that in DigitalPersona Kiosk environments, the currently logged on user is a generic Kiosk user and cannot be authenticated.",IDC_STATIC,7,97,368,16
+    DEFPUSHBUTTON   "OK",IDOK,261,123,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,325,123,50,14
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_MAIN, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 379
+        VERTGUIDE, 16
+        VERTGUIDE, 178
+        VERTGUIDE, 187
+        VERTGUIDE, 199
+        VERTGUIDE, 208
+        VERTGUIDE, 370
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 299
+        HORZGUIDE, 18
+        HORZGUIDE, 48
+        HORZGUIDE, 78
+    END
+
+    IDD_WRITE_SECRET, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 245
+        VERTGUIDE, 66
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 77
+        HORZGUIDE, 31
+    END
+
+    IDD_SECRET_EXIST, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 320
+        VERTGUIDE, 60
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 145
+        HORZGUIDE, 86
+    END
+
+    IDD_SECRET_NAME, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 235
+        VERTGUIDE, 60
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 60
+        HORZGUIDE, 34
+    END
+
+    IDD_USER_NAME, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 347
+        VERTGUIDE, 76
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 110
+        HORZGUIDE, 7
+    END
+
+    IDD_USER_NAME1, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 375
+        VERTGUIDE, 60
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 137
+        HORZGUIDE, 7
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#define APSTUDIO_HIDDEN_SYMBOLS\r\n"
+    "#include ""windows.h""\r\n"
+    "#undef APSTUDIO_HIDDEN_SYMBOLS\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_APP_TITLE           "UsingDigitalPersonaSDK"
+    IDC_USINGPROSDK         "USINGDIGITALPERSONASDK"
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+
