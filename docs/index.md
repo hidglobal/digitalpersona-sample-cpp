@@ -9,5 +9,6 @@ nav_order: 1
 
 ## Overview
 
-###### DigitalPersona C++ Sample Application
-####### DigitalPersona C++ Sample Application
+##### DigitalPersona C++ Sample Application  
+
+##### DigitalPersona C++ Sample Application
