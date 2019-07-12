@@ -11,7 +11,7 @@ nav_order: 1
 
 To view the digitalpersona-sample-cpp GitHub Pages *documentation*,  click the following link.
 
-[Digitalpersona C++ Sample Application  documentation](https://hidglobal.github.io/digitalpersona-sample-cpp/)
+[Digitalpersona C++ Sample Application  documentation](https://hidglobal.github.io/digitalpersona-native-api#sample-applications.md/)
 
 To view the digitalpersona-oidc-sample *repository*,  click this link.
 
