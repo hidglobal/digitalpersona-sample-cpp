@@ -1,6 +1,6 @@
-name: DigitalPersona Native API
-shortName: DPAM Native API
+name: DigitalPersona C++ Sample
+shortName: DPAM C++ Sample
 git: 'https://github.com/hidglobal'
-repo: digitalpersona-native-api
-package: '@digitalpersona/core'
+repo: digitalpersona-sample-cpp
+package: '@digitalpersona/sample-cpp'
 api: core
