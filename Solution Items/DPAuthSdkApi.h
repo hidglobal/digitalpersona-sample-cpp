@@ -6,51 +6,51 @@ MODULE NAME
 
 ABSTRACT
 
-DigitalPersona Authentication SDK is a library that allows you to authenticate DigitalPersona users in your applications.  
+DigitalPersona Authentication SDK is a library that allows you to authenticate DigitalPersona users in your applications.
 
-The SDK leverages the DigitalPersona multi-factor authentication capability:  authentication is performed using 
-the DigitalPersona admin's authentication policy and all credential types supported by DigitalPersona (passwords, fingerprints, smart cards, 
+The SDK leverages the DigitalPersona multi-factor authentication capability:  authentication is performed using
+the DigitalPersona admin's authentication policy and all credential types supported by DigitalPersona (passwords, fingerprints, smart cards,
 etc.) are supported by the API.
 
 
 OVERVIEW
 
 DigitalPersona Authentication SDK provides C++ functions to authenticate DigitalPersona users and release
-their protected data (secrets) after successful authentication.  
+their protected data (secrets) after successful authentication.
 
-The SDK provides:  
+The SDK provides:
 
-1. Authentication:  Verifying that a user is who they claim to be by checking that the 
+1. Authentication:  Verifying that a user is who they claim to be by checking that the
 provided credentials (password, fingerprint, etc.) match their username's credentials in the DigitalPersona database.
 
 The DPAlAuthenticate function displays the multi-factor authentication dialog and matches the supplied
-credentials against the user's enrolled credentials.  The customizable dialog box accepts the credentials 
-required by the authentication policy set by the Pro admin. 
+credentials against the user's enrolled credentials.  The customizable dialog box accepts the credentials
+required by the authentication policy set by the Pro admin.
 
 Optional:  On successful authentication, DPAlAuthenticate can return user secrets to the application.
 
 2. Identification:  Searching in DigitalPersona database to find the user and authenticate them.
 
-The DPAlIdentAuthenticate function displays the multi-factor identification dialog and identifies the user 
-based on the credentials supplied. The customizable dialog box allows the user to provide the credentials 
-required by the current authentication policy.  
+The DPAlIdentAuthenticate function displays the multi-factor identification dialog and identifies the user
+based on the credentials supplied. The customizable dialog box allows the user to provide the credentials
+required by the current authentication policy.
 
-Optional:  If the identification succeeds, DPAlIdentAuthenticate can return the user name and secret to the application. 
-
-
-Secrets are cryptographically protected and are released to an application only after successful 
-authentication of the user. Secrets are stored in the DigitalPersona database and roam with the rest of the user data. 
+Optional:  If the identification succeeds, DPAlIdentAuthenticate can return the user name and secret to the application.
 
 
-The most common use case is to add standard DigitalPersona authentication or identification to an application. 
+Secrets are cryptographically protected and are released to an application only after successful
+authentication of the user. Secrets are stored in the DigitalPersona database and roam with the rest of the user data.
+
+
+The most common use case is to add standard DigitalPersona authentication or identification to an application.
 
 For advanced users, the API provides for custom authentication policies that allow you to:
    - Extend the DigitalPersona admin's policy for more strict authentication (e.g. to add a credentials requirement)
-        OR 
-   - Create your own authentication policy. In this case, it may not be possible to retrieve secrets if your 
+        OR
+   - Create your own authentication policy. In this case, it may not be possible to retrieve secrets if your
      new policy is not as strict as the DigitalPersona admin's policy
 
-Consult the Developer Guide for more information on custom authentication policies.
+For additional information on custom authentication policies, see the DigitalPersona Native API documentation on GitHub.
 
 */
 
@@ -98,8 +98,8 @@ typedef enum DPAl_CREDENTIAL_TYPES {
 
 typedef enum DPAl_USERNAME_TYPES {
     DPAl_USER_NAME_UNKNOWN        = 0, // A name not associated with any Windows account. This value is to be used for local databases only.
-    DPAl_USER_NAME_SAM_COMPATIBLE = 3, // A Microsoft Windows NT 4.0 account name, for example, “the_company\jdoe” (only the domain name should end with a back
-    DPAl_USER_NAME_USER_PRINCIPAL = 6, // A user principal name, for example, “jdoe@thecompany.com”
+    DPAl_USER_NAME_SAM_COMPATIBLE = 3, // A Microsoft Windows NT 4.0 account name, for example, ï¿½the_company\jdoeï¿½ (only the domain name should end with a back
+    DPAl_USER_NAME_USER_PRINCIPAL = 6, // A user principal name, for example, ï¿½jdoe@thecompany.comï¿½
 	DPAl_USER_NAME_DP_ACCOUNT     = 9, // User name associated with DP identity database.
 } DPAl_USERNAME_TYPES;
 
@@ -109,7 +109,7 @@ typedef enum DPAl_USERNAME_TYPES {
 //
 // Calling this function is optional. If using multiple calls to other functions in the same application,
 // calling DPAlInit once at the beginning speeds up displaying the authentication dialogs and other functions.
-// 
+//
 // Every call to DPAlInit must be matched by a call to DPAlTerm.
 //
 // If not called by the application, DPAlInit and DPAlTerm are called implicitly within every function of this SDK,
@@ -122,7 +122,7 @@ DPAl_STDAPI DPAlInit();
 ///////////////////////////////////////////////////////////////////////////////
 // DPAlTerm
 //
-// Must be called once for each call of DPAlInit. Normally DPAlInit is called at the beginning of the application, 
+// Must be called once for each call of DPAlInit. Normally DPAlInit is called at the beginning of the application,
 // and DPAlTerm is called at the end.
 //
 DPAl_STDAPI_(VOID) DPAlTerm();
@@ -130,7 +130,7 @@ DPAl_STDAPI_(VOID) DPAlTerm();
 ///////////////////////////////////////////////////////////////////////////////
 // DPAlAuthenticate
 //
-// Shows appropriate multi-factor authentication dialog and optionally returns the 
+// Shows appropriate multi-factor authentication dialog and optionally returns the
 // requested secret upon successful authentication.
 //
 // Authentication is a 1-to-1 matching process where a user's credentials are compared
@@ -149,7 +149,7 @@ DPAl_STDAPI_(VOID) DPAlTerm();
 //   0x80070525                     The username could not be found
 //   HR(ERROR_NO_SUCH_USER)
 //
-//   HR(ERROR_BAD_ENVIRONMENT)      This function was called from a DigitalPersona Kiosk session with the name of the generic Kiosk user. 
+//   HR(ERROR_BAD_ENVIRONMENT)      This function was called from a DigitalPersona Kiosk session with the name of the generic Kiosk user.
 //
 //   Other COM errors.
 //
@@ -163,17 +163,17 @@ DPAl_STDAPI DPAlAuthenticate(
 	LPCWSTR szText,                    // [in, optional] Pointer to a NULL-terminated string that specifies dialog box text.
 	                                   // If this parameter is NULL, the default text is displayed.
 
-	LPCWSTR szUserName,                // [in, optional] Pointer to NULL-terminated string with username to authenticate. 
+	LPCWSTR szUserName,                // [in, optional] Pointer to NULL-terminated string with username to authenticate.
 	                                   // It may be in SAM format (i.e. "domain_name\account_name"), UPN format (i.e. "user_name@domain_name.com")
-	                                   // or name associated with DigitalPersona identity database (any string). If set to NULL, the currently logged on user is used. 
+	                                   // or name associated with DigitalPersona identity database (any string). If set to NULL, the currently logged on user is used.
 	                                   // Note that in the DigitalPersona Kiosk environment, the currently logged on user is a generic Kiosk user and cannot be authenticated.
 
-	ULONG uUserNameType,               // [in, optional] Type of szUserName. This parameter must be set to one of DPAl_USER_NAME_SAM_COMPATIBLE, DPAl_USER_NAME_USER_PRINCIPAL 
+	ULONG uUserNameType,               // [in, optional] Type of szUserName. This parameter must be set to one of DPAl_USER_NAME_SAM_COMPATIBLE, DPAl_USER_NAME_USER_PRINCIPAL
 	                                   // or DPAl_USER_NAME_DP_ACCOUNT respectively. Set it to 0 (DPAl_USER_NAME_UNKNOWN) for currently logged on user.
 
-	UINT64* pPolicyArray,              // [in, optional] Array of custom policy items provided by an application. If NULL, the policy configured by 
-	                                   // the Pro administrator is used. 
-	                                   // Note that Secrets are released only if the authentication policy configured by the Pro administrator is complied with. 
+	UINT64* pPolicyArray,              // [in, optional] Array of custom policy items provided by an application. If NULL, the policy configured by
+	                                   // the Pro administrator is used.
+	                                   // Note that Secrets are released only if the authentication policy configured by the Pro administrator is complied with.
 	                                   // If the application requests to release Secrets, the custom policy should be used only to augment the authentication
 	                                   // policy with additional credential.
 
@@ -187,22 +187,22 @@ DPAl_STDAPI DPAlAuthenticate(
 	LPBYTE* ppSecretBuffer,            // [out, optional] Pointer to a buffer which receives secret data. Can be NULL if szSecretName is also NULL.
 	                                   // This buffer must be deallocated using the DPAlBufferFree function.
 
-	UINT64* puAuthenticatedCredentials // [out, optional] Pointer to variable receiving mask of credentials used for authentication - one 
+	UINT64* puAuthenticatedCredentials // [out, optional] Pointer to variable receiving mask of credentials used for authentication - one
 	                                   // of the enumerated values from DPAl_CREDENTIAL_TYPES. May be NULL if not needed.
 );
 
 ///////////////////////////////////////////////////////////////////////////////
 // DPAlIdentAuthenticate
 //
-// Shows appropriate multi-factor authentication dialog (in identification mode), identifies the user 
+// Shows appropriate multi-factor authentication dialog (in identification mode), identifies the user
 // and optionally returns requested secret upon successful identification.
 //
 // Identification is a 1-to-many comparison where the entire Active Directory is searched to find
-// the supplied credentials. Once found, the user is authenticated. 
+// the supplied credentials. Once found, the user is authenticated.
 //
-// Note: For DigitalPersona Kiosk environments only.  
-// If used in Pro Workstation environments, this function only authenticates the currently logged on 
-// user, so it provides effectively the same functionality as the DPAlAuthenticate function but with 
+// Note: For DigitalPersona Kiosk environments only.
+// If used in Pro Workstation environments, this function only authenticates the currently logged on
+// user, so it provides effectively the same functionality as the DPAlAuthenticate function but with
 // a higher computational cost.
 //
 // Returned Values:
@@ -228,22 +228,22 @@ DPAl_STDAPI DPAlIdentAuthenticate(
 	                                   // If this parameter is NULL, the default text is displayed.
 
 
-	LPCWSTR szDefaultUserName,         // Default username shown in credentials like password or PIN that require a username to be entered by the user. 
-	                                   // The user can change the username if needed. 
+	LPCWSTR szDefaultUserName,         // Default username shown in credentials like password or PIN that require a username to be entered by the user.
+	                                   // The user can change the username if needed.
 	                                   // It may be in SAM format (i.e. "domain_name\account_name"), UPN format (i.e. "user_name@domain_name.com")
-	                                   // or name associated with DigitalPersona identity database (any string). If set to NULL, the currently logged on user is used. 
+	                                   // or name associated with DigitalPersona identity database (any string). If set to NULL, the currently logged on user is used.
 	                                   // Set the username to NULL to use the currently logged on user name; set username to empty string (L"") to show no user name.
 	                                   // Note that for credentials that perform true identification, like fingerprints, this default username is completely ignored.
 
-	ULONG uDefaultUserNameType,        // Type of szDefaultUserName. This parameter must be set to one of DPAl_USER_NAME_SAM_COMPATIBLE, DPAl_USER_NAME_USER_PRINCIPAL 
+	ULONG uDefaultUserNameType,        // Type of szDefaultUserName. This parameter must be set to one of DPAl_USER_NAME_SAM_COMPATIBLE, DPAl_USER_NAME_USER_PRINCIPAL
 	                                   // or DPAl_USER_NAME_DP_ACCOUNT respectively. Set it to 0 (DPAl_USER_NAME_UNKNOWN) for currently logged on user or to set empty szDefaultUserName.
 
-	UINT64* pPolicyArray,              // [in, optional] Array of custom policy items received from an application. If NULL, the policy configured by 
-	                                   // the Pro administrator is used. 
+	UINT64* pPolicyArray,              // [in, optional] Array of custom policy items received from an application. If NULL, the policy configured by
+	                                   // the Pro administrator is used.
 	                                   // Note that secrets are released based on the authentication policy configured by the administrator in Pro.
-	                                   // If a policy is substituted, the secret may not be released by this function if the user authenticated with less or 
-	                                   // other credentials than required to release the secret. 
-	                                   // Generally it is advisable to use substituted policies when secret release is not needed 
+	                                   // If a policy is substituted, the secret may not be released by this function if the user authenticated with less or
+	                                   // other credentials than required to release the secret.
+	                                   // Generally it is advisable to use substituted policies when secret release is not needed
 	                                   // and pdwSecretLength and ppSecretBuffer are set to NULL.
 
 	ULONG nNumPolicyArrayItems,        // [in, optional] Number of elements in the above array. Must be 0 if pPolicyArray is NULL.
@@ -262,14 +262,14 @@ DPAl_STDAPI DPAlIdentAuthenticate(
 	ULONG* puUserNameType,             // [out, optional] Type of pszUserName. Can be one of DPAl_USER_NAME_SAM_COMPATIBLE, DPAl_USER_NAME_USER_PRINCIPAL, or DPAl_USER_NAME_DP_ACCOUNT.
 	                                   // Can be NULL if username is not needed.
 
-	UINT64* puAuthenticatedCredentials // [out, optional] Pointer to variable receiving mask of credentials used for authentication - one 
+	UINT64* puAuthenticatedCredentials // [out, optional] Pointer to variable receiving mask of credentials used for authentication - one
 	                                   // of the enumerated values from DPAl_CREDENTIAL_TYPES. May be NULL if not needed.
 );
 
 ///////////////////////////////////////////////////////////////////////////////
 // DPAlReadAuthPolicy
 //
-// Reads the authentication policy configured by Pro administrator for the specified user on the local computer. 
+// Reads the authentication policy configured by Pro administrator for the specified user on the local computer.
 // This function is mostly needed in case a secret needs to be released with a custom policy, which then
 // must be configured to include the items required for secret release.
 //
@@ -277,17 +277,17 @@ DPAl_STDAPI DPAlIdentAuthenticate(
 //
 //   S_OK                           The function succeeded and the requested policy was read
 //
-//   HR(ERROR_BAD_ENVIRONMENT)      This function was called from a DigitalPersona Kiosk session with the name of the generic Kiosk user, 
+//   HR(ERROR_BAD_ENVIRONMENT)      This function was called from a DigitalPersona Kiosk session with the name of the generic Kiosk user,
 //                                  or from a non-Kiosk session with the username of user who was not currently logged on (use NULL for the username in this case!)
 //   Other COM errors
 //
 DPAl_STDAPI DPAlReadAuthPolicy(
 	LPCWSTR szUserName,             // [in, optional] Pointer to NULL-terminated string with username of the user whose policy is being queried.
 	                                // It may be in SAM format (i.e. "domain_name\account_name"), UPN format (i.e. "user_name@domain_name.com")
-	                                // or name associated with DigitalPersona identity database (any string). If set to NULL, the currently logged on user is used. 
+	                                // or name associated with DigitalPersona identity database (any string). If set to NULL, the currently logged on user is used.
 	                                // Note that in the DigitalPersona Kiosk environment, the currently logged on user is a generic Kiosk user and cannot be authenticated.
 
-	ULONG uUserNameType,            // [in, optional] Type of szUserName. This parameter must be set to one of DPAl_USER_NAME_SAM_COMPATIBLE, DPAl_USER_NAME_USER_PRINCIPAL 
+	ULONG uUserNameType,            // [in, optional] Type of szUserName. This parameter must be set to one of DPAl_USER_NAME_SAM_COMPATIBLE, DPAl_USER_NAME_USER_PRINCIPAL
 	                                // or DPAl_USER_NAME_DP_ACCOUNT respectively. Set it to 0 (DPAl_USER_NAME_UNKNOWN) for currently logged on user.
 
 	UINT64** pPolicyArray,          // [out] Array of policy items. This array needs to be deallocated by DPAlBufferFree.
@@ -299,7 +299,7 @@ DPAl_STDAPI DPAlReadAuthPolicy(
 ///////////////////////////////////////////////////////////////////////////////
 // DPAlWriteSecret
 //
-// Shows appropriate multi-factor authentication dialog and writes the specified 
+// Shows appropriate multi-factor authentication dialog and writes the specified
 // secret content in the Pro database upon successful authentication.
 //
 // This function can also be used for deleting secrets.
@@ -316,7 +316,7 @@ DPAl_STDAPI DPAlReadAuthPolicy(
 //   0x80070525                     The username could not be found
 //   HR(ERROR_NO_SUCH_USER)
 //
-//   HR(ERROR_BAD_ENVIRONMENT)      This function was called from a DigitalPersona Kiosk session with the name of the generic Kiosk user, 
+//   HR(ERROR_BAD_ENVIRONMENT)      This function was called from a DigitalPersona Kiosk session with the name of the generic Kiosk user,
 //                                  or from a non-Kiosk session with the username of user who was not currently logged on (use NULL for the username in this case!)
 //   Other COM errors.
 //
@@ -332,17 +332,17 @@ DPAl_STDAPI DPAlWriteSecret(
 
 	LPCWSTR szUserName,                // [in, optional] Pointer to a NULL-terminated string containing the username of the user whose secret must be written in the database.
 	                                   // It may be in SAM format (i.e. "domain_name\account_name"), UPN format (i.e. "user_name@domain_name.com")
-	                                   // or name associated with DigitalPersona identity database (any string). If set to NULL, the currently logged on user is used. 
+	                                   // or name associated with DigitalPersona identity database (any string). If set to NULL, the currently logged on user is used.
 	                                   // Note that in the DigitalPersona Kiosk environment, the currently logged on user is a generic Kiosk user and cannot be authenticated.
 
-	ULONG uUserNameType,               // [in, optional] Type of szUserName. This parameter must be set to one of DPAl_USER_NAME_SAM_COMPATIBLE, DPAl_USER_NAME_USER_PRINCIPAL 
+	ULONG uUserNameType,               // [in, optional] Type of szUserName. This parameter must be set to one of DPAl_USER_NAME_SAM_COMPATIBLE, DPAl_USER_NAME_USER_PRINCIPAL
 	                                   // or DPAl_USER_NAME_DP_ACCOUNT respectively. Set it to 0 (DPAl_USER_NAME_UNKNOWN) for currently logged on user.
 
-	UINT64* pPolicyArray,              // [in, optional] Array of custom policy items received from an application. If NULL, the policy configured by 
-	                                   // the Pro administrator is used. 
+	UINT64* pPolicyArray,              // [in, optional] Array of custom policy items received from an application. If NULL, the policy configured by
+	                                   // the Pro administrator is used.
 	                                   // Note that secrets are saved based on the authentication policy configured by the administrator in Pro.
-	                                   // If a policy is substituted, the secret may not be saved by this function if the user authenticated with less or 
-	                                   // other credentials than those required to save the secret. 
+	                                   // If a policy is substituted, the secret may not be saved by this function if the user authenticated with less or
+	                                   // other credentials than those required to save the secret.
 
 	ULONG nNumPolicyArrayItems,        // [in, optional] Number of elements in the above array. Must be 0 if pPolicyArray is NULL.
 
@@ -352,7 +352,7 @@ DPAl_STDAPI DPAlWriteSecret(
 
 	const LPBYTE pSecretBuffer,        // [in] Buffer with secret data to be written. If this parameter is NULL, the secret will be deleted.
 
-	UINT64* puAuthenticatedCredentials // [out, optional] Pointer to variable receiving mask of credentials used for authentication - one 
+	UINT64* puAuthenticatedCredentials // [out, optional] Pointer to variable receiving mask of credentials used for authentication - one
 	                                   // of the enumerated values from DPAl_CREDENTIAL_TYPES. May be NULL if not needed.
 );
 
@@ -368,10 +368,10 @@ DPAl_STDAPI DPAlWriteSecret(
 DPAl_STDAPI_(BOOL) DPAlDoesSecretExist(
 	LPCWSTR szUserName,             // [in, optional] Pointer to a NULL-terminated string containing the username of the user whose secret is being checked.
 	                                // It may be in SAM format (i.e. "domain_name\account_name"), UPN format (i.e. "user_name@domain_name.com")
-	                                // or name associated with DigitalPersona identity database (any string). If set to NULL, the currently logged on user is used. 
+	                                // or name associated with DigitalPersona identity database (any string). If set to NULL, the currently logged on user is used.
 	                                // Note that in the DigitalPersona Kiosk environment, the currently logged on user is a generic Kiosk user and cannot be authenticated.
 
-	ULONG uUserNameType,            // [in, optional] Type of szUserName. This parameter must be set to one of DPAl_USER_NAME_SAM_COMPATIBLE, DPAl_USER_NAME_USER_PRINCIPAL 
+	ULONG uUserNameType,            // [in, optional] Type of szUserName. This parameter must be set to one of DPAl_USER_NAME_SAM_COMPATIBLE, DPAl_USER_NAME_USER_PRINCIPAL
 	                                // or DPAl_USER_NAME_DP_ACCOUNT respectively. Set it to 0 (DPAl_USER_NAME_UNKNOWN) for currently logged on user.
 
 	LPCWSTR szSecretName            // [in] NULL-terminated string which represents the name of the secret
@@ -403,7 +403,7 @@ DPAl_STDAPI_(void) DPAlBufferFree(
 DPAl_STDAPI DPAlFormatMessage(
 	HRESULT hrMessageID,            // [in] ID of the message. This message ID must be in the form of HRESULT. The facility code in it is used
 	                                // to load the correct Message DLL, including Windows message DLLs.
-	                                
+
 	LPCWSTR szLanguageID,           // [in] Reserved parameter; set it to NULL. In this implementation the language ID of the calling thread is always used.
 
 	LPWSTR* pszMessageText          // [out] NULL-terminated string, text of the message returned from the appropriate Message DLL or System.
