@@ -6,6 +6,10 @@ To view the HID DigitalPersona Native API documentation, click the following lin
 
 [Digitalpersona Native API  documentation](https://hidglobal.github.io/digitalpersona-native-api/)  
 
+To view the HID Digitalpersona Access Management API documentation click this link.
+
+[Digitalpersona Access Management documentation](https://github.com/hidglobal/digitalpersona-access-management-api)
+
 To view the digitalpersona-sample-cpp *repository*,  click this link.
 
 [Digitalpersona C++ Sample Application  repository](https://github.com/hidglobal/digitalpersona-sample-cpp/)
